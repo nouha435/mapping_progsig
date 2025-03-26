@@ -1,0 +1,240 @@
+/* --- Importation de la police moderne --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* --- Réinitialisation générale --- */
+html, body, #viewDiv {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1f4037, #99f2c8);
+    color: #fff;
+}
+
+/* --- Conteneur des filtres (positionné en haut à droite) --- */
+#filtersContainer {
+    position: absolute;
+    top: 20px;
+    left: 100px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    
+    
+}
+
+/* --- Effet Glassmorphism sur le panneau de filtres --- */
+#filtersPanel {
+    background: rgba(255, 255, 255, 0.082);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    width: 320px;
+    display: none;
+    max-height: 450px;
+    overflow-y: auto;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(-10px);
+    opacity: 0;
+}
+
+#filtersPanel.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Titres et groupes de filtres --- */
+#filtersPanel h3 {
+    margin-top: 0;
+    color: blue;
+    font-size: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: blueviolet;
+    font-size: 14px;
+}
+
+/* --- Inputs & Sélections avec effet moderne --- */
+.filter-group select,
+.filter-group input,
+.filter-group textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.267);
+    color: #fff;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+.filter-group input:focus,
+.filter-group select:focus,
+.filter-group textarea:focus {
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* --- Bouton Reset moderne --- */
+#resetFilters {
+    width: 85%;
+    padding: 12px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+#resetFilters:hover {
+    background-color: #c9302c;
+    transform: scale(1);
+}
+
+/* --- Bouton Toggle avec effet stylé --- */
+#toggleFilters {
+    padding: 12px 18px;
+    background: linear-gradient(135deg, #22c1c3, #fdbb2d);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+#toggleFilters:hover {
+    background: linear-gradient(135deg, #fdbb2d, #22c1c3);
+    transform: scale(1.08);
+}
+
+/* --- Formulaire de réclamation avec effet Glassmorphism --- */
+#reclamationForm {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    margin-top: 15px;
+    width: 320px;
+}
+
+#reclamationForm h3 {
+    margin-top: 0;
+    color: blue;
+    font-size: 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+#reclamationForm input,
+#reclamationForm textarea {
+    width: 90%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    transition: all 0.3s;
+    font-size: 14px;
+}
+
+#reclamationForm input:focus,
+#reclamationForm textarea:focus {
+    background: rgba(255, 255, 255, 0.5);
+    outline: none;
+}
+
+/* --- Bouton Soumettre avec effet néon --- */
+#reclamationForm button {
+    width: 90%;
+    padding: 12px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s, transform 0.2s;
+}
+
+#reclamationForm button:hover {
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+    transform: scale(1.05);
+}
+
+/* --- Effet responsive pour les petits écrans --- */
+@media (max-width: 250px) {
+    #filtersContainer {
+        right: 10px;
+        top: 10px;
+    }
+    #filtersPanel,
+    #reclamationForm {
+        width: 30%;
+    }
+}
+
+
+
+/* Style amélioré pour tous les select */
+select {
+    width: 100%;
+    padding: 10px;
+    background-color: #f5f5f5; /* Fond clair */
+    border: 1px solid #ccc;    /* Bordure grise */
+    border-radius: 5px;        /* Coins arrondis */
+    font-size: 16px;            /* Taille de la police pour une meilleure lisibilité */
+    color: #333;               /* Couleur du texte sombre pour un bon contraste */
+    appearance: none;          /* Supprime les styles par défaut du navigateur */
+    box-sizing: border-box;    /* Inclut la bordure dans la largeur totale */
+}
+
+/* Style lors du focus */
+select:focus {
+    border-color: #4CAF50;     /* Bordure verte lors du focus */
+    outline: none;             /* Enlève l'effet de bordure par défaut */
+}
+
+/* Style des options dans le select */
+select option {
+    background-color: #ffffff; /* Fond blanc pour les options */
+    color: #333;               /* Couleur sombre pour les options */
+}
+
+/* Effet de survol pour les options */
+select option:hover {
+    background-color: #e6e6e6; /* Fond clair au survol */
+}
+
+
+
+
+
+
+
+
+
+
+
